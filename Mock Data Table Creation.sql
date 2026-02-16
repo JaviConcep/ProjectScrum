@@ -1,0 +1,7 @@
+CREATE TABLE MOCK_DATA (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(100),
+    genre VARCHAR(50),
+    price DECIMAL(10,2)
+);
