@@ -1,4 +1,4 @@
 package com.geektext.shoppingCart;
 
-public class CartRepository {
+public class Cart {
 }
