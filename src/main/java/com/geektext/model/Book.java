@@ -1,34 +1,47 @@
 package com.geektext.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "books")
 public class Book {
+
     @Id
-    private Long id;
+    @Column(name = "book_id")
+    private Long bookId;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "author")
     private String author;
+
+    @Column(name = "genre")
     private String genre;
+
+    @Column(name = "available")
     private boolean available;
 
     public Book() {
     }
 
-    public Book(Long id, String title, String author, String genre, boolean available) {
-        this.id = id;
+    public Book(Long bookId, String title, String author, String genre, boolean available) {
+        this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.available = available;
     }
 
-    public Long getId() {
-        return id;
+    public Long getBookId() {
+        return bookId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
     public String getTitle() {

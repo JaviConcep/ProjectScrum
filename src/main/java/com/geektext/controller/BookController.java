@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/books")
 public class BookController {
+
     @Autowired
     private BookService bookService;
-    @GetMapping("/{id}")
-    public Book getBookById(@PathVariable Long id) {
-        return bookService.getBookById(id);
+
+    @GetMapping("/{bookId}")
+    public Book getBookById(@PathVariable Long bookId) {
+        return bookService.getBookById(bookId);
     }
 }
