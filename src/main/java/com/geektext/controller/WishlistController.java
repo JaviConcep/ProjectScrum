@@ -37,5 +37,45 @@ public class WishlistController {
         return wishlistBookRepository.findByWishlistId(id);
     }
 
+    @PostMapping
+    public Wishlist createWishlist(@RequestBody Wishlist wishlist) {
+        return wishlistRepository.save(wishlist);
+    }
 
+    @PostMapping("/{wishlistId}/books")
+    public WishlistBook addBookToWishlist(@PathVariable Long wishlistId,
+                                          @RequestBody WishlistBook wishlistBook) {
+
+        if (!wishlistRepository.existsById(wishlistId)) {
+            throw new RuntimeException("Wishlist not found");
+        }
+
+        WishlistBook existing =
+                wishlistBookRepository.findByWishlistIdAndBookId(wishlistId, wishlistBook.getBookId());
+
+        if (existing != null) {
+            return existing;
+        }
+
+        wishlistBook.setWishlistId(wishlistId);
+        return wishlistBookRepository.save(wishlistBook);
+    }
+
+@DeleteMapping("/{wishlistId}/books/{bookId}")
+public void removeBookFromWishlist(@PathVariable Long wishlistId,
+                                   @PathVariable Long bookId) {
+
+    WishlistBook wb =
+        wishlistBookRepository.findByWishlistIdAndBookId(wishlistId, bookId);
+
+    if (wb != null) {
+        wishlistBookRepository.delete(wb);
+    }
+}
+
+    @DeleteMapping("/{id}")
+    public void deleteWishlist(@PathVariable Long id) {
+        wishlistBookRepository.deleteByWishlistId(id);
+        wishlistRepository.deleteById(id);
+    }
 }
