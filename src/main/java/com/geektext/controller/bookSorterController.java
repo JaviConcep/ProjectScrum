@@ -18,8 +18,13 @@ public class bookSorterController{
   }
 
   
-  public BookSorter getBooksByGenre(){
+  public bookSorter getBooksByGenre(){
     
+  }
+
+  @GetMapping("/books/top10")
+  public bookSorter getBooksBySales(){
+    return repository.findTop10ByOrderBySalesDesc();
   }
   
 }
