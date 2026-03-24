@@ -3,7 +3,7 @@ package com.geektext.controller;
 
 
 
-public class bookSortController{
+public class bookSorterController{
 
 
   
