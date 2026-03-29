@@ -10,4 +10,5 @@ public interface BookRatingRepository extends JpaRepository<BookRating, Long> {
 
     @Query("SELECT AVG(r.rating) FROM BookRating r WHERE r.bookId = ?1")
     Double getAverageRating(Long bookId);
+
 }
