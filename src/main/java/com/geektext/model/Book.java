@@ -25,15 +25,19 @@ public class Book {
     @Column(name = "available")
     private boolean available;
 
+    @Column(name = "price")
+    private double price;
+
     public Book() {
     }
 
-    public Book(Long bookId, String title, String author, String genre, boolean available) {
+    public Book(Long bookId, String title, String author, String genre, boolean available, double price) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.available = available;
+        this.price = price;
     }
 
     public Long getBookId() {
@@ -74,5 +78,13 @@ public class Book {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public double getBookPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
