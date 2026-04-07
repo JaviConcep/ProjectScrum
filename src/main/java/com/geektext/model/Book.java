@@ -80,7 +80,7 @@ public class Book {
         this.available = available;
     }
 
-    public double getPrice() {
+    public double getBookPrice() {
         return price;
     }
 
