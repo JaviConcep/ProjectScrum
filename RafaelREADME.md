@@ -1,4 +1,4 @@
-#Shopping Cart
+# Shopping Cart
 
 The Shopping Cart controller, model, and repository have been implemented in the GeektextApplication file.
 
