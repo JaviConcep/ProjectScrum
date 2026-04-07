@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @RestController
-
+@RequestMapping("/books")
 public class bookSorterController{
     private final bookSorterRepository repository;
 
