@@ -33,4 +33,17 @@ public class BookRatingController {
     public Double getAverage(@PathVariable Long bookId) {
         return repository.getAverageRating(bookId);
     }
+    // Requirement: PUT/PATCH (Update a rating)
+    @PutMapping("/{id}")
+    public BookRating updateRating(@PathVariable Long id, @RequestBody Integer newRating) {
+        BookRating rating = repository.findById(id).orElseThrow();
+        rating.setRating(newRating);
+        return repository.save(rating);
+    }
+
+    // Requirement: DELETE (Remove a rating)
+    @DeleteMapping("/{id}")
+    public void deleteRating(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
 }
