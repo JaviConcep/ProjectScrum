@@ -41,25 +41,43 @@ public class bookSorter{
     this.price = price;
     this.rating = rating;
     this.sales = sales;
-    this.publisher = publisher.
+    this.publisher = publisher;
   }
 
 
-  public getGenre {
-   return genre;
-  }
-  public getPrice {
-    return price;
-  }
-  public getRating{
-    return rating;
-  }
-  public getSales;{
-    return sales;
-  }
+    public Long getBookId() {
+        return bookId;
+    }
 
-  public setPrice (double price){
-    this.price = price;
-  }
-  
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public int getSales() {
+        return sales;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
