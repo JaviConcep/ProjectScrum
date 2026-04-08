@@ -31,9 +31,9 @@ public class bookSorter{
   @Column(name = "publisher", nullable = false)
   private String publisher;
 
-  public bookSort(){}
+  public bookSorter(){}
   
-  public bookSort(Long bookId, String title, String author, String genre, double price, double rating, int sales, String publisher){
+  public bookSorter(Long bookId, String title, String author, String genre, double price, double rating, int sales, String publisher){
     this.bookId = bookId;
     this.title = title;
     this.author = author;
