@@ -18,3 +18,9 @@ VALUES (1, 101);
 
 INSERT INTO wishlist_books (wishlist_id, book_id)
 VALUES (1, 102);
+
+INSERT INTO books (book_id, title, author, genre, available, price)
+VALUES (1, 'The Hobbit', 'J.R.R. Tolkien', 'Fantasy', true, 14.99)
+
+INSERT INTO books (book_id, title, author, genre, available, price)
+VALUES (2, 'Harry Potter', 'J.K. Rowling', 'Fantasy', true, 18.99)

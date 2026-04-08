@@ -5,6 +5,9 @@ import com.geektext.shoppingCart.CartItem;
 import com.geektext.repository.CartRepository;
 import com.geektext.repository.CartItemRepository;
 
+import com.geektext.model.Book;
+import com.geektext.service.BookService;
+
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -13,10 +16,13 @@ import java.util.List;
 public class CartController {
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
+    //Added book details feature to find book prices
+    private final BookService bookService;
 
-    public CartController(CartRepository cartRepository, CartItemRepository cartItemRepository){
+    public CartController(CartRepository cartRepository, CartItemRepository cartItemRepository, BookService bookService){
         this.cartRepository = cartRepository;
         this.cartItemRepository = cartItemRepository;
+        this.bookService = bookService;
     }
 
 
@@ -106,8 +112,14 @@ public class CartController {
         double total = 0;
         //This checks every book within the user's cart and multiplies its quantity by its price
         for(CartItem item : items){
-            double price = 10.0;
-            total += item.getQuantity() * price;
+            //Using book details feature to find book prices
+            try{
+                Book book = bookService.getBookById(item.getBookId());
+                total += item.getQuantity() * book.getBookPrice();
+            }
+            catch(RuntimeException e){
+                //Skips if a book is not found
+            }
         }
 
         return total;
