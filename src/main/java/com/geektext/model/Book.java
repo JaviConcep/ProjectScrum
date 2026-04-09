@@ -2,6 +2,8 @@ package com.geektext.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.Table;
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Long bookId;
 
@@ -26,12 +29,12 @@ public class Book {
     private boolean available;
 
     @Column(name = "price")
-    private double price;
+    private Double price;
 
     public Book() {
     }
 
-    public Book(Long bookId, String title, String author, String genre, boolean available, double price) {
+    public Book(Long bookId, String title, String author, String genre, boolean available, Double price) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -80,11 +83,11 @@ public class Book {
         this.available = available;
     }
 
-    public double getBookPrice() {
+    public Double getBookPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
