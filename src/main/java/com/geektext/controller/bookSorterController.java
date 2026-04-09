@@ -6,10 +6,10 @@ import com.geektext.repository.bookSorterRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/books")
-public class bookSorterController{
+public class bookSorterController {
+
     private final bookSorterRepository repository;
 
     public bookSorterController(bookSorterRepository repository) {
